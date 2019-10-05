@@ -17,6 +17,9 @@ export class LogService {
   });
   selectedLog = this.logSource.asObservable();
 
+  private stateSource = new BehaviorSubject<boolean>(true);
+  stateClear = this.stateSource.asObservable();
+
   constructor() {
     this.logs = [
       {
@@ -35,6 +38,9 @@ export class LogService {
         date: new Date("02/05/2017 12:04:59")
       }
     ];
+    // If there should should be no loggs in the beginning.
+    // Here logs will be displayed for demonstration purposes
+    //  this.logs = [];
   }
 
   getLogs(): Observable<Log[]> {
@@ -64,5 +70,9 @@ export class LogService {
         this.logs.splice(index, 1);
       }
     });
+  }
+
+  clearState() {
+    this.stateSource.next(true);
   }
 }
