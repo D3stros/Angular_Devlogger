@@ -21,26 +21,7 @@ export class LogService {
   stateClear = this.stateSource.asObservable();
 
   constructor() {
-    this.logs = [
-      {
-        id: "1",
-        text: "Generated components",
-        date: new Date("12/10/2017 12:30:52")
-      },
-      {
-        id: "2",
-        text: "Added Bootstrap",
-        date: new Date("08/11/2017 10:30:52")
-      },
-      {
-        id: "3",
-        text: "Added logs component",
-        date: new Date("02/05/2017 12:04:59")
-      }
-    ];
-    // If there should should be no loggs in the beginning.
-    // Here logs will be displayed for demonstration purposes
-    //  this.logs = [];
+    this.logs = [];
   }
 
   getLogs(): Observable<Log[]> {
